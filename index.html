@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase PowerPoint | Instituto Webinar</title>
+    
+    <!-- Pixel do Meta -->
+    <script>
+        !function(f,b,e,v,n,t,s){
+            if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '889234918500722');
+            fbq('track', 'PageView');
+    </script>
+    
+    <style>
+        /* ESTILOS FIEIS AO ORIGINAL */
+        body {
+            margin: 0;
+            font-family: 'Archivo', 'Rubik', 'Roboto', sans-serif;
+            background: linear-gradient(180deg, #001021 0%, #001021 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 20px 0px 0px 0px;
+        }
+        
+        .logo {
+            max-width: 300px;
+            margin: 0 auto 20px;
+        }
+        
+        .subheader {
+            background: #3475f5; /* Azul ciano do original */
+            color: white;
+            padding: 10px;
+            margin: 0 auto 0px;
+            border-radius: 10px 10px 0px 0px;
+            font-size: 1.2em;
+        }
+        .header-background{
+            background-color: #f0f0f0;
+        }
+        
+        .main-title {
+            text-align: center;
+            font-size: 2em;
+            line-height: 1.4;
+            max-width: 900px;
+            margin: 0 auto 20px;
+            color: black;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 4rem;
+            gap: 40px;
+            background-color: #f0f0f0;
+        }
+        
+        .video-container {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+        
+        .video-thumbnail {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .video-thumbnail:hover {
+            transform: scale(1.02);
+        }
+        
+        .benefits-container {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: black;
+        }
+        
+        .benefit-icon {
+            margin-right: 15px;
+            font-size: 1.5em;
+            color: #00bcd4;
+            min-width: 25px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(to right, #3475F5, #00bcd4);
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        /* Modal/Popup Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            position: relative;
+            animation: modalOpen 0.4s ease-out;
+        }
+        
+        @keyframes modalOpen {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        .modal-title {
+            color: #283593;
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        
+        .privacy-check {
+            color: #333;
+            font-size: 0.9em;
+        }
+        
+        .submit-button {
+            background: #3475F5;
+            color: white;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            background: #2a65d4;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 1.6em;
+            }
+            
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .video-container, 
+            .benefits-container {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Seção Principal -->
+    <div class="container">
+        <div class="header">
+            <img src="https://institutowebinar.com/wp-content/uploads/2024/02/logo-blanco-1-1.png" 
+                 alt="Instituto Webinar" class="logo">
+            
+            <div class="subheader">
+                Accede gratis al vídeo de 12 minutos
+            </div>
+            <div class="header-background">
+                <h1 class="main-title">
+                    Cómo <u>captar clientes</u> usando una 
+                    <span style="color:#3475f5">presentación Power Point probada</span> 
+                    para negocios de <u>servicios y formación</u>
+                </h1>
+                
+                <p style="text-align: center; font-style: italic; opacity: 0.9; max-width: 600px; margin: 0 auto; color:black">
+                    ... aunque ahora nadie te conozca y no quieras crear contenidos en redes sociales
+                </p>
+            </div>
+        </div>
+        
+        <!-- Conteúdo Principal -->
+        <div class="content-wrapper">
+            <!-- Vídeo/Imagem -->
+            <div class="video-container">
+                <img src="https://institutowebinar.com/wp-content/uploads/2025/05/Screenshot-28-05-2025-F7gZE7jr@2x-min-768x432.png" 
+                     alt="Preview do Vídeo" class="video-thumbnail" id="open-modal">
+            </div>
+            
+            <!-- Lista de Benefícios -->
+            <div class="benefits-container">
+                <ul class="benefits-list">
+                    <li class="benefit-item">
+                        <span class="benefit-icon">→</span>
+                        <span>El método exacto que usamos para captar <b>clientes cualificados cada semana</b> sin necesidad de publicar en redes.</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon">→</span>
+                        <span>Cómo diseñar una presentación que convierte <b>sin ser un experto en marketing</b> ni tener experiencia previa.</span>
+                    </li>
+                    <li class="benefit-item">
+                        <span class="benefit-icon">→</span>
+                        <span>Por qué esta estrategia es perfecta si tienes poco tiempo y <b>necesitas resultados sin contar tu vida en redes</b>.</span>
+                    </li>
+                </ul>
+                
+                <!-- Botão de CTA Principal -->
+                <button class="cta-button" id="open-modal-btn">
+                    VER VÍDEO GRATIS
+                </button>
+            </div>
+        </div>
+        
+        <!-- Rodapé -->
+        <div class="footer">
+            <p>Instituto Webinar © 2025</p>
+            <p>
+                <a href="/aviso-legal" style="color: #aaa; text-decoration: none;">Aviso Legal</a> - 
+                <a href="/politica-de-privacidad" style="color: #aaa; text-decoration: none;">Política de Privacidad</a> - 
+                <a href="/politica-de-cookies" style="color: #aaa; text-decoration: none;">Política de Cookies</a>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Modal/Popup do Formulário -->
+    <div id="form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2 class="modal-title">Acceso inmediato al vídeo de 12 minutos</h2>
+            
+            <form id="webinar-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nombre sin apellidos *" required
+                           class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Tu mejor email *" required
+                           class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label class="privacy-check">
+                        <input type="checkbox" required>
+                        He leído la <a href="/politica-privacidad" target="_blank" style="color: #3475F5;">política de privacidad</a> y acepto recibir contenidos
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-button">
+                    VER VÍDEO GRATIS
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Controle do Modal
+        const modal = document.getElementById('form-modal');
+        const openModalBtn = document.getElementById('open-modal-btn');
+        const openModalImg = document.getElementById('open-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        // Abrir modal ao clicar no botão ou na imagem
+        openModalBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+        
+        openModalImg.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+        
+        // Fechar modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        // Fechar ao clicar fora do conteúdo
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Configuração do formulário
+        document.getElementById('webinar-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Rastrear conversão no Facebook
+            fbq('track', 'Lead');
+            
+            // Coletar dados do formulário
+            const formData = new FormData(this);
+            
+            // Enviar para Zapier (substitua pela sua URL)
+            fetch('https://hooks.zapier.com/hooks/catch/123456/abc123/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Fechar modal
+                    modal.style.display = 'none';
+                    
+                    // Redirecionar para página de agradecimento
+                    window.location.href = 'obrigado.html';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ocurrió un error. Por favor, inténtelo de nuevo.');
+            });
+        });
+    </script>
+</body>
+</html>
