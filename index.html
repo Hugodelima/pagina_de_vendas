@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clase PowerPoint | Instituto Webinar</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://institutowebinar.com/wp-content/uploads/2024/02/instituto-webinar-icon-150x150.png" sizes="32x32">
+    <link rel="icon" href="https://institutowebinar.com/wp-content/uploads/2024/02/instituto-webinar-icon-300x300.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://institutowebinar.com/wp-content/uploads/2024/02/instituto-webinar-icon-300x300.png">
     
     <!-- Pixel do Meta -->
     <script>
@@ -21,58 +26,77 @@
     
     <style>
         /* ESTILOS FIEIS AO ORIGINAL */
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             margin: 0;
             font-family: 'Archivo', 'Rubik', 'Roboto', sans-serif;
             background: linear-gradient(180deg, #001021 0%, #001021 100%);
             color: white;
             min-height: 100vh;
+            line-height: 1.5;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
         }
         
         .header {
             text-align: center;
-            padding: 20px 0px 0px 0px;
+            padding: 0;
         }
         
         .logo {
-            max-width: 300px;
-            margin: 0 auto 20px;
+            max-width: 200px;
+            margin: 0 auto 15px;
+            display: block;
         }
         
         .subheader {
-            background: #3475f5; /* Azul ciano do original */
+            background: #3475f5;
             color: white;
-            padding: 10px;
-            margin: 0 auto 0px;
-            border-radius: 10px 10px 0px 0px;
-            font-size: 1.2em;
+            padding: 12px;
+            margin: 0 auto;
+            border-radius: 10px 10px 0 0;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
-        .header-background{
+        
+        .header-background {
             background-color: #f0f0f0;
+            padding: 25px 15px 15px;
         }
         
         .main-title {
             text-align: center;
-            font-size: 2em;
-            line-height: 1.4;
-            max-width: 1000px;
-            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            line-height: 1.3;
+            margin: 0 auto 15px;
             color: black;
-            padding: 1rem;
+            padding: 0;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            opacity: 0.9;
+            margin: 0 auto;
+            color: black;
+            font-size: 1rem;
+            max-width: 600px;
+            padding: 0 10px;
         }
         
         .content-wrapper {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            padding-top: 4rem;
-            gap: 40px;
+            padding-top: 2rem;
+            gap: 30px;
             background-color: #f0f0f0;
         }
         
@@ -80,12 +104,13 @@
             flex: 1;
             min-width: 300px;
             max-width: 600px;
+            padding: 0 15px;
         }
         
         .video-thumbnail {
             width: 100%;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             cursor: pointer;
             transition: transform 0.3s ease;
         }
@@ -98,56 +123,75 @@
             flex: 1;
             min-width: 300px;
             max-width: 500px;
+            padding: 0 15px;
         }
         
         .benefits-list {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         
         .benefit-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
-            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-size: 1rem;
             color: black;
         }
         
         .benefit-icon {
-            margin-right: 15px;
-            font-size: 1.5em;
+            margin-right: 12px;
+            font-size: 1.3rem;
             color: #00bcd4;
             min-width: 25px;
+            margin-top: 3px;
         }
         
         .cta-button {
             background: linear-gradient(to right, #45c528, #2bc908);
             color: white;
-            padding: 16px 40px;
+            padding: 14px 20px;
             border: none;
             border-radius: 50px;
-            font-size: 1.1em;
+            font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
             display: block;
-            margin: 30px auto;
+            margin: 25px auto;
             text-align: center;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             transition: all 0.3s ease;
             width: 100%;
+            max-width: 350px;
         }
         
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 7px 18px rgba(0,0,0,0.25);
         }
         
         .footer {
             text-align: center;
-            margin-top: 60px;
+            margin-top: 50px;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        
+        .footer-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
         }
         
         /* Modal/Popup Styles */
@@ -162,14 +206,16 @@
             z-index: 1000;
             align-items: center;
             justify-content: center;
+            overflow-y: auto;
+            padding: 20px;
         }
         
         .modal-content {
             background: white;
             border-radius: 15px;
-            width: 90%;
+            width: 100%;
             max-width: 600px;
-            padding: 30px;
+            padding: 25px;
             position: relative;
             animation: modalOpen 0.4s ease-out;
         }
@@ -186,62 +232,225 @@
             font-size: 28px;
             cursor: pointer;
             color: #333;
+            line-height: 1;
         }
         
         .modal-title {
             color: #283593;
             text-align: center;
             margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
         
         .form-input {
             width: 100%;
-            padding: 14px;
+            padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 1em;
+            font-size: 1rem;
         }
         
         .privacy-check {
             color: #333;
-            font-size: 0.9em;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .privacy-check input {
+            margin-top: 3px;
         }
         
         .submit-button {
             background: linear-gradient(to right, #45c528, #2bc908);
             color: white;
             border: none;
-            padding: 16px;
+            padding: 14px;
             width: 100%;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1.1rem;
             cursor: pointer;
-            transition: background 1s ease;
+            transition: all 0.3s ease;
         }
         
         .submit-button:hover {
-            background: linear-gradient(#33901e);
+            opacity: 0.9;
+            transform: translateY(-2px);
         }
         
-        /* Responsividade */
-        @media (max-width: 768px) {
+        /* RESPONSIVIDADE - TABLET (768px - 1024px) */
+        @media (min-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .logo {
+                max-width: 250px;
+            }
+            
+            .subheader {
+                font-size: 1.2rem;
+                padding: 14px;
+            }
+            
             .main-title {
-                font-size: 1.6em;
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
             }
             
             .content-wrapper {
-                flex-direction: column;
+                padding-top: 3rem;
+                gap: 40px;
             }
             
-            .video-container, 
+            .benefit-item {
+                font-size: 1.1rem;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* RESPONSIVIDADE - DESKTOP (1025px+) */
+        @media (min-width: 1025px) {
+            .container {
+                padding: 30px;
+            }
+            
+            .logo {
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
+            
+            .subheader {
+                font-size: 1.3rem;
+                padding: 16px;
+            }
+            
+            .header-background {
+                padding: 30px 20px 20px;
+            }
+            
+            .main-title {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .content-wrapper {
+                padding-top: 4rem;
+            }
+            
+            .benefit-item {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+            
+            .cta-button {
+                padding: 16px 40px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* RESPONSIVIDADE - CELULAR (até 480px) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .logo {
+                max-width: 180px;
+                margin-bottom: 10px;
+            }
+            
+            .subheader {
+                font-size: 1rem;
+                padding: 10px;
+            }
+            
+            .header-background {
+                padding: 20px 10px 10px;
+            }
+            
+            .main-title {
+                font-size: 1.3rem;
+                margin-bottom: 12px;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .content-wrapper {
+                padding-top: 1.5rem;
+                gap: 20px;
+            }
+            
+            .video-container,
             .benefits-container {
+                padding: 0 10px;
+            }
+            
+            .benefit-item {
+                font-size: 0.95rem;
+                margin-bottom: 12px;
+            }
+            
+            .benefit-icon {
+                font-size: 1.1rem;
+                margin-right: 10px;
+            }
+            
+            .cta-button {
+                padding: 12px 20px;
+                font-size: 1rem;
                 max-width: 100%;
+            }
+            
+            .footer {
+                margin-top: 40px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .modal-content {
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+            
+            .form-input {
+                padding: 12px;
+            }
+            
+            .privacy-check {
+                font-size: 0.85rem;
+            }
+            
+            .submit-button {
+                padding: 13px;
+                font-size: 1rem;
             }
         }
     </style>
@@ -263,7 +472,7 @@
                     para negocios de <u>servicios y formación</u>
                 </h1>
                 
-                <p style="text-align: center; font-style: italic; opacity: 0.9; max-width: 600px; margin: 0 auto; color:black">
+                <p class="subtitle">
                     ... aunque ahora nadie te conozca y no quieras crear contenidos en redes sociales
                 </p>
             </div>
@@ -304,11 +513,11 @@
         <!-- Rodapé -->
         <div class="footer">
             <p>Instituto Webinar © 2025</p>
-            <p>
-                <a href="/aviso-legal" style="color: #aaa; text-decoration: none;">Aviso Legal</a> - 
-                <a href="/politica-de-privacidad" style="color: #aaa; text-decoration: none;">Política de Privacidad</a> - 
-                <a href="/politica-de-cookies" style="color: #aaa; text-decoration: none;">Política de Cookies</a>
-            </p>
+            <div class="footer-links">
+                <a href="/aviso-legal" class="footer-link">Aviso Legal</a>
+                <a href="/politica-de-privacidad" class="footer-link">Política de Privacidad</a>
+                <a href="/politica-de-cookies" class="footer-link">Política de Cookies</a>
+            </div>
         </div>
     </div>
     
@@ -353,21 +562,33 @@
         // Abrir modal ao clicar no botão ou na imagem
         openModalBtn.addEventListener('click', () => {
             modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Impede scroll quando modal aberto
         });
         
         openModalImg.addEventListener('click', () => {
             modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         });
         
         // Fechar modal
         closeModal.addEventListener('click', () => {
             modal.style.display = 'none';
+            document.body.style.overflow = ''; // Restaura o scroll
         });
         
         // Fechar ao clicar fora do conteúdo
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Fechar com a tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
             }
         });
         
@@ -381,24 +602,15 @@
             // Coletar dados do formulário
             const formData = new FormData(this);
             
-            // Enviar para Zapier (substitua pela sua URL)
-            fetch('https://hooks.zapier.com/hooks/catch/123456/abc123/', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Fechar modal
-                    modal.style.display = 'none';
-                    
-                    // Redirecionar para página de agradecimento
-                    window.location.href = 'obrigado.html';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Ocurrió un error. Por favor, inténtelo de nuevo.');
-            });
+            // Simulação de envio (substitua pela URL real do Zapier)
+            setTimeout(() => {
+                // Fechar modal
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+                
+                // Redirecionar para página de agradecimento
+                window.location.href = 'obrigado.html';
+            }, 800);
         });
     </script>
 </body>
